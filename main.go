@@ -4,15 +4,16 @@ import (
 	"fmt"
 	"net/http"
 
-	"graphql-inventario/config"
+	"graphql-inventario/schema"
 
 	"github.com/99designs/gqlgen/graphql/playground"
 	"github.com/graphql-go/handler"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
 func main() {
 	h := handler.New(&handler.Config{
-		Schema: &config.Schema,
+		Schema: &schema.Schema,
 		Pretty: true,
 	})
 

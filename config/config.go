@@ -1,12 +1,26 @@
 package config
 
 import (
-	"graphql-inventario/schema"
+	"database/sql"
+	"fmt"
+	"log"
 
-	"github.com/graphql-go/graphql"
+	_ "github.com/go-sql-driver/mysql"
 )
 
-var Schema, _ = graphql.NewSchema(graphql.SchemaConfig{
-	Query:    schema.RootQuery,
-	Mutation: schema.RootMutation,
-})
+var DB *sql.DB
+
+func init() {
+	var err error
+	DB, err = sql.Open("mysql", "root:Gjiroto12_@tcp(localhost:3306)/inventario")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = DB.Ping()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("Conexión a la base de datos exitosa")
+}

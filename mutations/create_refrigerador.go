@@ -1,6 +1,7 @@
 package mutations
 
 import (
+	"graphql-inventario/config"
 	"graphql-inventario/resolvers"
 
 	"github.com/google/uuid"
@@ -25,16 +26,20 @@ var CreateRefrigeradorMutation = &graphql.Field{
 
 		// Crear un nuevo refrigerador
 		refrigerador := &resolvers.Refrigerador{
-
-			ID:       uuid.New().String(), // Puedes generar un ID único aquí
+			ID:       uuid.New().String(),
 			Name:     name,
 			Brand:    brand,
 			Color:    color,
 			Category: resolvers.Category(category),
 		}
 
-		// Aquí puedes guardar el refrigerador en tu base de datos u otro almacenamiento
-		// Por simplicidad, aquí simplemente devolvemos el refrigerador creado
+		// Guardar el refrigerador en la base de datos
+		_, err := config.DB.Exec("INSERT INTO refrigeradores (id, name, brand, color, category) VALUES (?, ?, ?, ?, ?)",
+			refrigerador.ID, refrigerador.Name, refrigerador.Brand, refrigerador.Color, refrigerador.Category)
+		if err != nil {
+			return nil, err
+		}
+
 		return refrigerador, nil
 	},
 }
