@@ -1,11 +1,9 @@
 # Essential data to run the demo.
 
-//////////////////////////////////////////////////////////
-
 # PACKAGES AND COMMANDS
 
 First make sure you have the gqlgen package installed, to install it I ran the following command:
-# NOTE: This command only needs to be executed once.
+NOTE: This command only needs to be executed once.
 # go get -d github.com/99designs/gqlgen
 
 Every time the 'schema.graphql' file is updated, the command must be executed:
@@ -14,15 +12,13 @@ Every time the 'schema.graphql' file is updated, the command must be executed:
 When you want to run the project, use the command
 # go run server.go
 
-////////////////////////////////////////////////////////////
 
-# NOTE: To run the demo, make sure you have the essential packages installed and the database configured.
+NOTE: To run the demo, make sure you have the essential packages installed and the database configured.
 
 To configure the database, you can do it in the following demo path:
 
-# config\config.go
+config\config.go
 
-////////////////////////////////////////////////////////////
 
 # DATABASE
 
