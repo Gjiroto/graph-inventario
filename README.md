@@ -4,13 +4,15 @@
 
 First make sure you have the gqlgen package installed, to install it I ran the following command:
 NOTE: This command only needs to be executed once.
-# go get -d github.com/99designs/gqlgen
+go get -d github.com/99designs/gqlgen
+
 
 Every time the 'schema.graphql' file is updated, the command must be executed:
-# go run github.com/99designs/gqlgen generate
+go run github.com/99designs/gqlgen generate
+
 
 When you want to run the project, use the command
-# go run server.go
+go run server.go
 
 
 NOTE: To run the demo, make sure you have the essential packages installed and the database configured.
@@ -18,6 +20,7 @@ NOTE: To run the demo, make sure you have the essential packages installed and t
 To configure the database, you can do it in the following demo path:
 
 config\config.go
+
 
 
 # DATABASE
