@@ -12,7 +12,7 @@ var DB *sql.DB
 
 func init() {
 	var err error
-	DB, err = sql.Open("mysql", "root:Gjiroto12_@tcp(localhost:3306)/inventario")
+	DB, err = sql.Open("mysql", "root:Ha3223730151@tcp(localhost:3306)/inventory")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -22,5 +22,5 @@ func init() {
 		log.Fatal(err)
 	}
 
-	fmt.Println("Conexión a la base de datos exitosa")
+	fmt.Println("Database connection successful")
 }

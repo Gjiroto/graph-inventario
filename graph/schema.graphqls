@@ -1,0 +1,98 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+type Query {
+  refrigerators: [Refrigerator!]!
+  televisions: [TV!]!
+  cellphones: [Cellphone!]!
+}
+
+type Mutation {
+  addRefrigerator(input: AddRefrigeratorMutation!): Refrigerator!
+  editRefrigerator(input: EditRefrigeratorMutation!): Refrigerator!
+  removeRefrigerator(id: ID!): ID!
+  addTV(input: AddTVMutation!): TV!
+  editTV(input: EditTVMutation!): TV!
+  removeTV(id: ID!): ID!
+  addCellphone(input: AddCellphoneMutation!): Cellphone!
+  editCellphone(input: EditCellphoneMutation!): Cellphone!
+  removeCellphone(id: ID!): ID!
+}
+
+enum CategoryType {
+  REFRIGERATOR
+  TV
+  CELLPHONE
+}
+
+type Refrigerator{
+  id: ID!
+	name: String!
+	brand: String
+	color: String
+	category: CategoryType!
+}
+
+input AddRefrigeratorMutation{
+	name: String!
+	brand: String
+	color: String
+	category: CategoryType!
+}
+
+input EditRefrigeratorMutation{
+  id: ID!
+	name: String
+	brand: String
+	color: String
+	category: CategoryType
+}
+
+
+type TV{
+  id: ID!
+	name: String!
+	brand: String
+	color: String
+	category: CategoryType!
+}
+
+input AddTVMutation{
+	name: String!
+	brand: String
+	color: String
+	category: CategoryType!
+}
+
+input EditTVMutation{
+  id: ID!
+	name: String
+	brand: String
+	color: String
+	category: CategoryType
+}
+
+
+type Cellphone{
+  id: ID!
+	name: String!
+	brand: String
+	color: String
+	category: CategoryType!
+}
+
+input AddCellphoneMutation{
+	name: String!
+	brand: String
+	color: String
+	category: CategoryType!
+}
+
+input EditCellphoneMutation{
+  id: ID!
+	name: String
+	brand: String
+	color: String
+	category: CategoryType
+}
