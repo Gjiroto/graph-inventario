@@ -7,7 +7,6 @@ import (
 	"os"
 
 	"github.com/99designs/gqlgen/graphql/handler"
-	"github.com/99designs/gqlgen/graphql/playground"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/rs/cors"
@@ -40,11 +39,12 @@ func main() {
 	log.Printf("Explore with \"https://studio.apollographql.com/sandbox/explorer?endpoint=http://localhost:" + port + "\"")
 	log.Fatal(http.ListenAndServe(":"+port, router))
 
-	http.Handle("/", playground.Handler("GraphQL playground", "/query"))
+	// PLAYGROUND
+	/*http.Handle("/", playground.Handler("GraphQL playground", "/query"))
 	http.Handle("/query", srv)
 
 	log.Printf("connect to http://localhost:%s/ for GraphQL playground", port)
-	log.Fatal(http.ListenAndServe(":"+port, nil))
+	log.Fatal(http.ListenAndServe(":"+port, nil))*/
 }
 
 // Produce a middleware to check that the `Router-Authorization` header is set and matches routerSecret
