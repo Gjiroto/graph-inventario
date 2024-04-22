@@ -9,10 +9,20 @@ services:
       ROUTER_SECRET: "ROUTER_SECRET"
     depends_on:
       - db
+    networks:
+      - public
+
   db:
     image: mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: Gjiroto12_
       MYSQL_DATABASE: inventory
+    command: --default-authentication-plugin=mysql_native_password
     ports:
       - "3307:3306"
+    networks:
+      - public
+networks:
+  public:
+  private:
+    internal: true
