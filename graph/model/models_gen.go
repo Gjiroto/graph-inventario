@@ -37,6 +37,8 @@ type Cellphone struct {
 	Category CategoryType `json:"category"`
 }
 
+func (Cellphone) IsEntity() {}
+
 type EditCellphoneMutation struct {
 	ID       string        `json:"id"`
 	Name     *string       `json:"name,omitempty"`
@@ -75,6 +77,8 @@ type Refrigerator struct {
 	Category CategoryType `json:"category"`
 }
 
+func (Refrigerator) IsEntity() {}
+
 type Tv struct {
 	ID       string       `json:"id"`
 	Name     string       `json:"name"`
@@ -82,6 +86,8 @@ type Tv struct {
 	Color    *string      `json:"color,omitempty"`
 	Category CategoryType `json:"category"`
 }
+
+func (Tv) IsEntity() {}
 
 type CategoryType string
 

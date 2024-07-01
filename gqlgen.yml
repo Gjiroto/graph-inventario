@@ -8,14 +8,31 @@ exec:
   package: graph
 
 # Uncomment to enable federation
-# federation:
-#   filename: graph/federation.go
-#   package: graph
+federation:
+  filename: graph/federation.go
+  package: graph
 
 # Where should any generated models go?
 model:
   filename: graph/model/models_gen.go
   package: model
+
+models:
+  User:
+    model: github.com/99designs/gqlgen/plugin/federation/fedruntime.Entity
+  Product:
+    model: github.com/99designs/gqlgen/plugin/federation/fedruntime.Entity
+  ID:
+    model:
+      - github.com/99designs/gqlgen/graphql.ID
+      - github.com/99designs/gqlgen/graphql.Int
+      - github.com/99designs/gqlgen/graphql.Int64
+      - github.com/99designs/gqlgen/graphql.Int32
+  Int:
+    model:
+      - github.com/99designs/gqlgen/graphql.Int
+      - github.com/99designs/gqlgen/graphql.Int64
+      - github.com/99designs/gqlgen/graphql.Int32
 
 # Where should the resolver implementations go?
 resolver:
@@ -73,15 +90,3 @@ autobind:
 # The first line in each type will be used as defaults for resolver arguments and
 # modelgen, the others will be allowed when binding to fields. Configure them to
 # your liking
-models:
-  ID:
-    model:
-      - github.com/99designs/gqlgen/graphql.ID
-      - github.com/99designs/gqlgen/graphql.Int
-      - github.com/99designs/gqlgen/graphql.Int64
-      - github.com/99designs/gqlgen/graphql.Int32
-  Int:
-    model:
-      - github.com/99designs/gqlgen/graphql.Int
-      - github.com/99designs/gqlgen/graphql.Int64
-      - github.com/99designs/gqlgen/graphql.Int32

@@ -26,7 +26,7 @@ enum CategoryType {
   CELLPHONE
 }
 
-type Refrigerator{
+type Refrigerator @key(fields: "id") {
   id: ID!
 	name: String!
 	brand: String
@@ -34,38 +34,14 @@ type Refrigerator{
 	category: CategoryType!
 }
 
-input AddRefrigeratorMutation{
+input AddRefrigeratorMutation {
 	name: String!
 	brand: String
 	color: String
 	category: CategoryType!
 }
 
-input EditRefrigeratorMutation{
-  id: ID!
-	name: String
-	brand: String
-	color: String
-	category: CategoryType
-}
-
-
-type TV{
-  id: ID!
-	name: String!
-	brand: String
-	color: String
-	category: CategoryType!
-}
-
-input AddTVMutation{
-	name: String!
-	brand: String
-	color: String
-	category: CategoryType!
-}
-
-input EditTVMutation{
+input EditRefrigeratorMutation {
   id: ID!
 	name: String
 	brand: String
@@ -74,7 +50,7 @@ input EditTVMutation{
 }
 
 
-type Cellphone{
+type TV @key(fields: "id") {
   id: ID!
 	name: String!
 	brand: String
@@ -82,14 +58,38 @@ type Cellphone{
 	category: CategoryType!
 }
 
-input AddCellphoneMutation{
+input AddTVMutation {
 	name: String!
 	brand: String
 	color: String
 	category: CategoryType!
 }
 
-input EditCellphoneMutation{
+input EditTVMutation {
+  id: ID!
+	name: String
+	brand: String
+	color: String
+	category: CategoryType
+}
+
+
+type Cellphone @key(fields: "id") {
+  id: ID!
+	name: String!
+	brand: String
+	color: String
+	category: CategoryType!
+}
+
+input AddCellphoneMutation {
+	name: String!
+	brand: String
+	color: String
+	category: CategoryType!
+}
+
+input EditCellphoneMutation {
   id: ID!
 	name: String
 	brand: String
